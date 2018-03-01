@@ -115,7 +115,7 @@ func TestAccServer_UpdateUserData(t *testing.T) {
 					resource.TestCheckResourceAttr(
 						"hcloud_server.foobar",
 						"user_data",
-						"stuff"),
+						"Xu44OBOItvMO/dXFxvBn2/MsC7M="),
 				),
 			},
 
@@ -154,7 +154,7 @@ func TestAccServer_ISO(t *testing.T) {
 					resource.TestCheckResourceAttr(
 						"hcloud_server.foobar", "name", fmt.Sprintf("foo-%d", rInt)),
 					resource.TestCheckResourceAttr(
-						"hcloud_server.foobar", "iso", "ubuntu-16.04.1-server-amd64"),
+						"hcloud_server.foobar", "iso", "coreos_stable_production.iso"),
 				),
 			},
 		},
@@ -287,7 +287,7 @@ resource "hcloud_server" "foobar" {
   image       = "debian-9"
   datacenter  = "fsn1-dc8"
 	backup_window = "22-02"
-	iso         = "ubuntu-16.04.1-server-amd64"
+	iso         = "coreos_stable_production.iso"
 	ssh_keys  = ["${hcloud_ssh_key.foobar.id}"]
 }`, rInt, testAccSSHPublicKey, rInt)
 }
